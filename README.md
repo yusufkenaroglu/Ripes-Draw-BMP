@@ -1,3 +1,3 @@
-#V1.0
-#features:
-#            Writes pixel data to a memory-mapped matrix display.
+#V1.1
+#improvements:
+#            allows for sprites smaller than display size to make zig-zags
