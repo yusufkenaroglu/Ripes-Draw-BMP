@@ -4,7 +4,10 @@ image: .word 0x010101, 0x000000, 0x060606, 0x030303, 0x181818, 0xb0b0b0, 0xababa
 image_width: .byte 55
 image_height: .byte 25
 pos_x: .byte 0
+x_dir: .byte 1
+y_dir: .byte 1
 pos_y: .byte 0 
+
 video_buffer_address: .word 0x1ffffff0  
     
     
@@ -31,18 +34,54 @@ main:
     #unconditional jump to label main
     j main
      
-    
-    
+
 move_bmp:
     la t0, pos_x
-    lb t1, 0(t0)
-    addi t1, t1, 1
+    lb t1, 0(t0)  
+    la t2, x_dir
+    lb t3, 0(t2) 
+    add t1, t1, t3
+    blt t1, zero, flip_x 
+
+    li t4, LED_MATRIX_0_WIDTH
+    la t5, image_width
+    lbu t6, 0(t5)
+    sub t4, t4, t6 
+    bgt t1, t4, flip_x 
+
+    j store_x
+flip_x:
+    sub t3, zero, t3 
+    sb t3, 0(t2)
+    add t1, t1, t3
+store_x:
     sb t1, 0(t0)
+
     la t0, pos_y
     lb t1, 0(t0)
-    addi t1, t1, 1
+    la t2, y_dir
+    lb t3, 0(t2) 
+    add t1, t1, t3 
+
+    li t4, 0
+    blt t1, t4, flip_y 
+
+    li t4, LED_MATRIX_0_HEIGHT
+    la t5, image_height
+    lbu t6, 0(t5)
+    sub t4, t4, t6      
+    bgt t1, t4, flip_y 
+
+    j store_y
+flip_y:
+    sub t3, zero, t3 
+    sb t3, 0(t2)
+    add t1, t1, t3  
+store_y:
     sb t1, 0(t0)
+
     ret
+
 
 draw_bmp: #usage: draw_bmp(uint32_t &image, uint8_t image_width, uint8_t image_height, uint8_t pos_x, uint8_t pos_y)
     addi sp, sp, -4 
@@ -96,7 +135,7 @@ flush_buffer:
 #    LED_MATRIX_O[i] = video_buffer[i]; video_buffer[i] = colour:
 #    video_buffer[i] = 0;
 #}
-    la t0, video_buffer_address
+    la t0, video_buffer_address 
     lw t0, 0(t0)
     li t1, LED_MATRIX_0_BASE
     li t3, LED_MATRIX_0_SIZE
