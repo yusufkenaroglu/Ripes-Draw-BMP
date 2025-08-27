@@ -2,6 +2,8 @@ Please read this document carefully to get Draw BMP running properly on your mac
 
 <p align="center">
   <img src="https://github.com/yusufkenaroglu/Ripes-Draw-BMP/blob/67181e4af68e8d7c3706dec479c1b99f250a8fde/img/Ripes-Draw-BMP-Welcome.gif" width="350" title="WELCOME GIF">
+  <br>
+  <em>Sequence sped-up</em>
 </p>
 <h1 align = "center"> 🖼️Ripes Draw BMP🖼️ </h1>
 
