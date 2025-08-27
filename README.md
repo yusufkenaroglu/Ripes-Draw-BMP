@@ -92,7 +92,7 @@ To run the program again without making changes to the string, locate the "Reset
   <img src="https://github.com/yusufkenaroglu/Ripes-Draw-BMP/blob/67181e4af68e8d7c3706dec479c1b99f250a8fde/img/figure%2011.jpg" width="500" title="Ripes reset the simulator button">
 </p>
 
-To run the program again to draw a different image, go to the editor tab and replace lines __3 through 5__ located right under __.data__ section on line 2 with contents of [bliss 150x150](https://github.com/yusufkenaroglu/Ripes-Draw-BMP/blob/67181e4af68e8d7c3706dec479c1b99f250a8fde/img/bliss_150x150) or [DVD 55x25](https://github.com/yusufkenaroglu/Ripes-Draw-BMP/blob/67181e4af68e8d7c3706dec479c1b99f250a8fde/img/dvd_55_25). 
+To run the program again to draw a different image, go to the editor tab and replace lines __3 through 5__ located right under __.data__ section on line 2 with contents of [bliss 150x150](https://github.com/yusufkenaroglu/Ripes-Draw-BMP/blob/67181e4af68e8d7c3706dec479c1b99f250a8fde/img/bliss_150x150) or [DVD 55x25](https://github.com/yusufkenaroglu/Ripes-Draw-BMP/blob/67181e4af68e8d7c3706dec479c1b99f250a8fde/img/dvd_55_25). You will need to re-adjust the matrix display dimensions accordingly. 
 
 Any changes made to the image (or any other part of the source code for that matter) will automatically reset the simulator. Clicking on the >> button will suffice.
 
